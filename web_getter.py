@@ -133,7 +133,8 @@ def save_to_csv(data, filename="matches.csv"):
     fieldnames = ["match_number", "url", "alliance", "teams", "score"]  # Core fields
     extra_fields = sorted(set(k for match in data for k in match.keys() if k not in fieldnames))
     fieldnames.extend(extra_fields)  # Append dynamically extracted stats
-    filename = os.path.join(r"C:\Users\Neil\Documents\Python projects\pythonthingsimade\robitics", filename)
+    current_directory = os.path.abspath(os.curdir)
+    filename = os.path.join(current_directory, filename)
     # Write to CSV using semicolon as delimiter
     with open(filename, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter=';')
