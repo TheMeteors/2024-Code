@@ -163,6 +163,7 @@ else:
 season_key = input("Enter the season key (e.g., '2425'): ")
 include_long_name = input("Would you like to include the long name? (y/n): ").strip().lower() == 'y'
 filename = input("Enter the filename for the CSV file (e.g., 'team_data.csv'): ")
-filename = os.path.join(r"C:\Users\Neil\Documents\Python projects\pythonthingsimade\robitics", filename)
+current_directory = os.path.abspath(os.curdir)
+filename = os.path.join(current_directory, filename)
 # Save data to csv file
 collect_and_save_data(team_numbers, season_key, include_long_name, filename)
